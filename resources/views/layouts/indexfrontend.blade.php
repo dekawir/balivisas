@@ -42,41 +42,59 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Bali<span>visas</span></a></h1>
+      <h1 class="logo"><a href="#"><img src="assets/img/logo.png"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="#">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li><a href="#services">Why Choose Us</a></li>
+          <li class="drop-down"><a href="">Visa Services</a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
+              <li class="drop-down"><a href="#">B211A e-Visa Application</a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="#">OFFSHORE B211A Visa Application</a></li>
+                  <li><a href="#">ONSHORE B211A Visa Application</a></li>
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li class="drop-down"><a href="#">KITAS - Onshore</a>
+                <ul>
+                  <li><a href="#">Artist KITAS - Onshore</a></li>
+                  <li><a href="#">Dependent / Spousal KITAS - Onshore</a></li>
+                  <li><a href="#">Spouse KITAS - Onshore</a></li>
+                  <li><a href="#">Retirement KITAS - Onshore</a></li>
+                  <li><a href="#">Working KITAS - Onshore</a></li>
+                  <li><a href="#">Investment KITAS - Onshore</a></li>
+                </ul>
+              </li>
             </ul>
           </li>
+          <li class="drop-down"><a href="">Legal Document</a>
+            <ul>
+              <li class="drop-down"><a href="#">Business Setup</a>
+                <ul>
+                  <li><a href="#">Foreign Investment Company (PMA)</a></li>
+                </ul>
+              </li>
+              <li class="drop-down"><a href="#">Other Service</a>
+                <ul>
+                  <li><a href="#">SKTT (Residency Certificate)</a></li>
+                  <li><a href="#">Driving License</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#article">Our Blog</a></li>
+          <li><a href="#team">Our Team</a></li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
       @if (!empty(Auth::user()->name))
-        <a href="{{route('logout')}}" class="get-started-btn scrollto">Logout</a>
-          
+      <a href="{{route('logout')}}" class="get-started-btn scrollto">Logout</a>
+
       @endif
 
     </div>
@@ -87,9 +105,9 @@
     <div class="container" data-aos="fade-up">
 
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-        <div class="col-xl-6 col-lg-8">
-          <h1>Powerful Digital Solutions With Gp<span>.</span></h1>
-          <h2>We are team of talented digital marketers</h2>
+        <div class="col-xl-8 col-lg-10">
+          <h1>Welcome to BALI VISAS<span>.</span></h1>
+          <h2>The Indonesian Visa Application Center based in Bali</h2>
         </div>
       </div>
 
@@ -97,39 +115,26 @@
         <div class="col-xl-2 col-md-4 col-6">
           <div class="icon-box">
             <i class="ri-store-line"></i>
-            <h3><a href="">Lorem Ipsum</a></h3>
+            <h3><a href="">Visa Services</a></h3>
           </div>
         </div>
         <div class="col-xl-2 col-md-4 col-6 ">
           <div class="icon-box">
             <i class="ri-bar-chart-box-line"></i>
-            <h3><a href="">Dolor Sitema</a></h3>
+            <h3><a href="">Legal Document</a></h3>
           </div>
         </div>
         <div class="col-xl-2 col-md-4 col-6 mt-4 mt-md-0">
           <div class="icon-box">
             <i class="ri-calendar-todo-line"></i>
-            <h3><a href="">Sedare Perspiciatis</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4 col-6 mt-4 mt-xl-0">
-          <div class="icon-box">
-            <i class="ri-paint-brush-line"></i>
-            <h3><a href="">Magni Dolores</a></h3>
-          </div>
-        </div>
-        <div class="col-xl-2 col-md-4 col-6 mt-4 mt-xl-0">
-          <div class="icon-box">
-            <i class="ri-database-2-line"></i>
-            <h3><a href="">Nemos Enimade</a></h3>
+            <h3><a href="">Other Services</a></h3>
           </div>
         </div>
       </div>
-
     </div>
   </section><!-- End Hero -->
 
-@yield('content')
+  @yield('content')
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
