@@ -5,13 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -25,7 +20,16 @@ class HomeController extends Controller
     public function index()
     {
         // dd(User::all());
-        return view('home');
+        return view('backend.dashboard');
     }
 
+    public function user()
+    {
+        $user= User::all();
+        return view('backend.user',compact('user'));
+    }
+    public function edit($id)
+    {
+        dd($id);
+    }
 }

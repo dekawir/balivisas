@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,25 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
+// Auth::routes();
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('form.login');
+Route::post('/login-process', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-Route::get('/admin/home',[App\Http\Controllers\HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+//============================================= Admin==========================================
+Route::prefix('user')->middleware(['auth'])->group(function(){
+    Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
+
+});
+
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+
+Route::prefix('admin')->middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
+    Route::get('/user', [App\Http\Controllers\AdminController::class, 'user'])->name('user');
+    Route::get('/edit/id={id}', [App\Http\Controllers\AdminController::class, 'edit'])->name('edit');
+
+
+});
