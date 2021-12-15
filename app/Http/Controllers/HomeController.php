@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Article;
+use App\Models\Team;
 class HomeController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -25,7 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         // dd(User::all());
-        return view('home');
+        $article = Article::where(['status'=>'1'])->get();
+        $team = Team::where(['status'=>'1'])->get();
+        $title = ['title'=>'Dashboard','route'=>'dashboard.0'];
+        return view('home',compact('title','article','team'));
     }
 
 }

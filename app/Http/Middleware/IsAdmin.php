@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IsAdmin
 {
@@ -14,12 +16,22 @@ class IsAdmin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next , $role)
     {
-        if(auth()->users()->is_admin == 1)
-        {
-            return $next($request);
+        $user = Auth::user();
+
+        if($role == 'admin' && $user->is_admin == '0'){
+            Alert::error('error','You are not admin');
+            return redirect()->route('dashboard.0');
         }
-        return redirect('home')->with('error',"You don't have admin access.");
+
+        if($role == 'user' && $user->is_admin == '1'){
+            Alert::error('error','You are not user');
+            return redirect()->route('dashboard.1');
+        }
+
+        return $next($request);
+
+
     }
 }
